@@ -38,7 +38,6 @@
             margin: 0 auto;
         }
 
-        /* Header / Total Section */
         .total-section {
             text-align: center;
             padding: 40px 20px;
@@ -85,7 +84,6 @@
             letter-spacing: 1px;
         }
 
-        /* Cards */
         .card {
             background: var(--card);
             border: 1px solid var(--card-border);
@@ -101,125 +99,30 @@
             letter-spacing: 2px;
             color: var(--text-muted);
             margin-bottom: 16px;
+        }
+
+        .breakdown-item {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-        }
-
-        /* Form Elements */
-        .form-row {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .form-row:last-child {
-            margin-bottom: 0;
-        }
-
-        select, input {
-            flex: 1;
-            padding: 12px 14px;
-            background: var(--bg);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            color: var(--text);
-            font-family: inherit;
-            font-size: 15px;
-            transition: border-color 0.2s;
-        }
-
-        select:focus, input:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        input::placeholder {
-            color: var(--text-dim);
-        }
-
-        input[type="number"] {
-            font-family: 'Space Mono', monospace;
-        }
-
-        button {
-            padding: 12px 20px;
-            background: var(--accent);
-            border: none;
-            border-radius: 8px;
-            color: #fff;
-            font-family: inherit;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-
-        button:hover {
-            background: #15803d;
-            transform: translateY(-1px);
-        }
-
-        button:active {
-            transform: translateY(0);
-        }
-
-        .btn-secondary {
-            background: var(--bg);
-            border: 1px solid var(--card-border);
-            color: var(--text-muted);
-        }
-
-        .btn-secondary:hover {
-            background: var(--card-border);
-            border-color: var(--card-border);
-        }
-
-        .btn-small {
-            padding: 8px 12px;
-            font-size: 12px;
-        }
-
-        .btn-danger {
-            background: #7f1d1d;
-            color: #fecaca;
-        }
-
-        .btn-danger:hover {
-            background: #991b1b;
-        }
-
-        /* Source Tags */
-        .sources-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .source-tag {
-            display: inline-flex;
             align-items: center;
-            gap: 6px;
-            padding: 6px 12px;
-            background: var(--accent-light);
-            border: 1px solid #bbf7d0;
-            border-radius: 20px;
-            font-size: 13px;
-            color: #15803d;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--card-border);
         }
 
-        .source-tag .remove {
-            cursor: pointer;
-            opacity: 0.5;
-            transition: opacity 0.2s;
+        .breakdown-item:last-child {
+            border-bottom: none;
         }
 
-        .source-tag .remove:hover {
-            opacity: 1;
+        .breakdown-source {
+            color: var(--text-muted);
+            font-size: 14px;
         }
 
-        /* Entry Log */
+        .breakdown-amount {
+            font-family: 'Space Mono', monospace;
+            color: var(--text);
+        }
+
         .entry-list {
             max-height: 400px;
             overflow-y: auto;
@@ -256,24 +159,6 @@
             font-family: 'Space Mono', monospace;
             font-size: 16px;
             color: var(--accent);
-            margin-right: 12px;
-        }
-
-        .entry-delete {
-            background: none;
-            border: none;
-            color: var(--text-dim);
-            cursor: pointer;
-            padding: 4px;
-            opacity: 0.4;
-            transition: opacity 0.2s;
-        }
-
-        .entry-delete:hover {
-            opacity: 1;
-            color: #ef4444;
-            background: none;
-            transform: none;
         }
 
         .empty-state {
@@ -283,7 +168,6 @@
             font-size: 14px;
         }
 
-        /* Loading State */
         .loading {
             text-align: center;
             padding: 40px;
@@ -301,132 +185,41 @@
             60%, 100% { content: '...'; }
         }
 
-        /* Add Source Modal/Inline */
-        .add-source-form {
-            display: none;
-            gap: 10px;
-            margin-top: 12px;
-        }
-
-        .add-source-form.active {
-            display: flex;
-        }
-
-        /* Breakdowns */
-        .breakdown-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px 0;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .breakdown-item:last-child {
-            border-bottom: none;
-        }
-
-        .breakdown-source {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
-        .breakdown-amount {
-            font-family: 'Space Mono', monospace;
-            color: var(--text);
-        }
-
-        /* Status indicator */
-        .sync-status {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 8px 14px;
-            background: var(--card);
-            border: 1px solid var(--card-border);
-            border-radius: 20px;
-            font-size: 12px;
-            color: var(--text-dim);
-            opacity: 0;
-            transition: opacity 0.3s;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-
-        .sync-status.visible {
-            opacity: 1;
-        }
-
-        .sync-status.success {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        .sync-status.error {
-            border-color: #ef4444;
-            color: #ef4444;
-        }
-
         .expand-btn {
             width: 100%;
             margin-top: 12px;
             padding: 10px;
             background: var(--bg);
             border: 1px dashed var(--card-border);
+            border-radius: 8px;
             color: var(--text-dim);
             font-size: 13px;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
         }
 
         .expand-btn:hover {
             border-color: var(--accent);
             color: var(--accent);
-            background: var(--bg);
-            transform: none;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Total Section -->
         <div class="total-section">
             <div class="year-label">2026 Income</div>
             <div class="total-amount" id="totalAmount">$0</div>
             <div class="total-label">Year to Date</div>
         </div>
 
-        <!-- Add Entry -->
-        <div class="card">
-            <div class="card-title">Add Income</div>
-            <div class="form-row">
-                <select id="sourceSelect">
-                    <option value="">Select source...</option>
-                </select>
-                <input type="number" id="amountInput" placeholder="Amount" step="0.01" min="0">
-            </div>
-            <div class="form-row">
-                <input type="date" id="dateInput">
-                <button onclick="addEntry()">Add</button>
-            </div>
-        </div>
-
-        <!-- Income Sources -->
-        <div class="card">
-            <div class="card-title">
-                <span>Income Sources</span>
-                <button class="btn-small btn-secondary" onclick="toggleAddSource()">+ Add</button>
-            </div>
-            <div class="sources-list" id="sourcesList"></div>
-            <div class="add-source-form" id="addSourceForm">
-                <input type="text" id="newSourceInput" placeholder="Source name (e.g., Job #2)">
-                <button class="btn-small" onclick="addSource()">Add</button>
-            </div>
-        </div>
-
-        <!-- Breakdown by Source -->
         <div class="card">
             <div class="card-title">Breakdown</div>
-            <div id="breakdownList"></div>
+            <div id="breakdownList">
+                <div class="loading">Loading</div>
+            </div>
         </div>
 
-        <!-- Entry Log -->
         <div class="card">
             <div class="card-title">Recent Entries</div>
             <div class="entry-list" id="entryList">
@@ -435,28 +228,21 @@
         </div>
     </div>
 
-    <div class="sync-status" id="syncStatus">Saved</div>
-
     <script>
-        // Config
         const CONFIG = {
             binId: '697c4ac8d0ea881f409241a7',
             apiKey: '$2a$10$lavgB34IlkZ3W/jKKu.HzeGPyZtFOZCZYAnKEPvg0iwRbW.USV/Sm'
         };
 
-        // State
         let data = {
-            sources: ['Job #1', 'Side Hustle #1'],
+            sources: [],
             entries: []
         };
 
-        // Initialize
-        document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('dateInput').valueAsDate = new Date();
-            loadData();
-        });
+        let entriesExpanded = false;
 
-        // JSONbin API
+        document.addEventListener('DOMContentLoaded', loadData);
+
         async function loadData() {
             try {
                 const response = await fetch(`https://api.jsonbin.io/v3/b/${CONFIG.binId}/latest`, {
@@ -469,44 +255,13 @@
                 render();
             } catch (error) {
                 console.error('Load error:', error);
-                showStatus('Load failed', 'error');
-                render();
+                document.getElementById('breakdownList').innerHTML = '<div class="empty-state">Failed to load data</div>';
+                document.getElementById('entryList').innerHTML = '<div class="empty-state">Failed to load data</div>';
             }
         }
 
-        async function saveData() {
-            try {
-                showStatus('Saving...', '');
-                const response = await fetch(`https://api.jsonbin.io/v3/b/${CONFIG.binId}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-Master-Key': CONFIG.apiKey
-                    },
-                    body: JSON.stringify(data)
-                });
-                if (response.ok) {
-                    showStatus('Saved', 'success');
-                } else {
-                    throw new Error('Save failed');
-                }
-            } catch (error) {
-                console.error('Save error:', error);
-                showStatus('Save failed', 'error');
-            }
-        }
-
-        function showStatus(message, type) {
-            const status = document.getElementById('syncStatus');
-            status.textContent = message;
-            status.className = 'sync-status visible ' + type;
-            setTimeout(() => status.classList.remove('visible'), 2000);
-        }
-
-        // Render
         function render() {
             renderTotal();
-            renderSources();
             renderBreakdown();
             renderEntries();
         }
@@ -518,23 +273,6 @@
                 .reduce((sum, e) => sum + e.amount, 0);
             
             document.getElementById('totalAmount').textContent = formatCurrency(yearTotal);
-        }
-
-        function renderSources() {
-            const select = document.getElementById('sourceSelect');
-            const list = document.getElementById('sourcesList');
-
-            // Update select
-            select.innerHTML = '<option value="">Select source...</option>' +
-                data.sources.map(s => `<option value="${s}">${s}</option>`).join('');
-
-            // Update tags
-            list.innerHTML = data.sources.map(s => `
-                <span class="source-tag">
-                    ${s}
-                    <span class="remove" onclick="removeSource('${s}')">&times;</span>
-                </span>
-            `).join('');
         }
 
         function renderBreakdown() {
@@ -564,13 +302,11 @@
                 `).join('');
         }
 
-        let entriesExpanded = false;
-
         function renderEntries() {
             const list = document.getElementById('entryList');
             
             if (data.entries.length === 0) {
-                list.innerHTML = '<div class="empty-state">No entries yet. Add your first income!</div>';
+                list.innerHTML = '<div class="empty-state">No entries yet</div>';
                 return;
             }
 
@@ -579,14 +315,13 @@
             const visible = sorted.slice(0, displayCount);
             const hiddenCount = sorted.length - 5;
             
-            let html = visible.map((e, i) => `
+            let html = visible.map(e => `
                 <div class="entry-item">
                     <div class="entry-info">
                         <div class="entry-source">${e.source}</div>
                         <div class="entry-date">${formatDate(e.date)}</div>
                     </div>
                     <span class="entry-amount">+${formatCurrency(e.amount)}</span>
-                    <button class="entry-delete" onclick="deleteEntry('${e.id}')" title="Delete">✕</button>
                 </div>
             `).join('');
 
@@ -606,69 +341,6 @@
             renderEntries();
         }
 
-        // Actions
-        function addEntry() {
-            const source = document.getElementById('sourceSelect').value;
-            const amount = parseFloat(document.getElementById('amountInput').value);
-            const date = document.getElementById('dateInput').value;
-
-            if (!source || !amount || !date) {
-                alert('Please fill in all fields');
-                return;
-            }
-
-            data.entries.push({
-                id: Date.now().toString(),
-                source,
-                amount,
-                date
-            });
-
-            document.getElementById('amountInput').value = '';
-            document.getElementById('sourceSelect').value = '';
-            
-            render();
-            saveData();
-        }
-
-        function deleteEntry(id) {
-            if (!confirm('Delete this entry?')) return;
-            data.entries = data.entries.filter(e => e.id !== id);
-            render();
-            saveData();
-        }
-
-        function toggleAddSource() {
-            document.getElementById('addSourceForm').classList.toggle('active');
-            document.getElementById('newSourceInput').focus();
-        }
-
-        function addSource() {
-            const input = document.getElementById('newSourceInput');
-            const name = input.value.trim();
-            
-            if (!name) return;
-            if (data.sources.includes(name)) {
-                alert('Source already exists');
-                return;
-            }
-
-            data.sources.push(name);
-            input.value = '';
-            document.getElementById('addSourceForm').classList.remove('active');
-            
-            render();
-            saveData();
-        }
-
-        function removeSource(name) {
-            if (!confirm(`Remove "${name}"? Existing entries will keep this source.`)) return;
-            data.sources = data.sources.filter(s => s !== name);
-            render();
-            saveData();
-        }
-
-        // Helpers
         function formatCurrency(amount) {
             return '$' + amount.toLocaleString('en-US', { 
                 minimumFractionDigits: 0,
@@ -683,17 +355,6 @@
                 year: 'numeric'
             });
         }
-
-        // Handle enter key in new source input
-        document.getElementById('newSourceInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') addSource();
-        });
-
-        // Handle enter key in amount input
-        document.getElementById('amountInput').addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') addEntry();
-        });
     </script>
 </body>
 </html>
-
